@@ -18,11 +18,6 @@ syntax Transition
 
 lexical Nat = [1-9][0-9]* !>> [0-9];
 
-//lexical Nat
-//  =  Nat [0-9]
-//  | [0-9] 
-//  ;
-
 lexical Id = ([a-zA-Z][a-zA-Z0-9_]* !>> [a-zA-Z0-9_]) \ Reserved ;
 
 keyword Reserved = "events" | "end" | "resetEvents" | "state" | "actions" ;

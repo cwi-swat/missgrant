@@ -2,7 +2,6 @@ module lang::missgrant::base::Extract
 
 import lang::missgrant::base::AST;
 
-//set[tuple[...]]
 alias TransRel = rel[str state, str event,  str toState];
 alias ActionRel = rel[str state, str command];
 

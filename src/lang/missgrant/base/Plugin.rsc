@@ -24,20 +24,6 @@ import IO;
 private str CONTROLLER_LANG = "Controller";
 private str CONTROLLER_EXT = "ctl";
 
-set[Message] check(Controller ctl)
-  = check([undefinedStates()
-  , undefinedEvents()
-  , undefinedCommands()
-  , resetsInTransition()
-  , duplicateStates()
-  , duplicateEvents()
-  , duplicateCommands()
-  , unreachableStates()
-  , nonDeterministicStates()
-  , unusedEvents()
-  , unusedCommands()
-  , deadendStates()], ctl);
-
 void main() {
   registerLanguage(CONTROLLER_LANG, CONTROLLER_EXT, Tree(str src, loc l) {
      return parse(src, l);
@@ -59,7 +45,7 @@ void main() {
     		 }),
 
     		 builder(set[Message] (Tree pt) {
-    		   ctl = desugar([resetEvents()], implode(pt));
+    		   ctl = desugar(implode(pt));
     		   out = (pt@\loc)[extension="java"];
     		   class = split(".", out.file)[0];
     		   writeFile(out, compile(class, ctl));

@@ -7,7 +7,6 @@ import vis::Figure;
 import List;
 import util::Math;
 import IO;
-import util::Resources;
 import vis::Render;
 import Relation;
 import Set;
