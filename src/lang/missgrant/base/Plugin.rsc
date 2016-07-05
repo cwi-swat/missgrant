@@ -40,16 +40,18 @@ void main() {
 	    	  ),
 
     		 annotator(Tree (Tree pt) {
-    		   pt = xrefController(pt);
-    		   return pt[@messages = check(implode(pt))];
+    		   if (start[Controller] ctl := pt) {
+    		     ctl = xrefController(ctl);
+    		     return ctl[@messages = check(implode(ctl))];
+    		   }
     		 }),
 
     		 builder(set[Message] (Tree pt) {
     		   ctl = desugar(implode(pt));
     		   out = (pt@\loc)[extension="java"];
     		   class = split(".", out.file)[0];
-    		   writeFile(out, compile(class, ctl));
-               return {};
+    		   writeFile(out.top, compile(class, ctl));
+       return {};
     		 }),
     		 
     		 outliner(node (Tree input) {

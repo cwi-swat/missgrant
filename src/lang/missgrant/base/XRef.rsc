@@ -3,7 +3,7 @@ module lang::missgrant::base::XRef
 import lang::missgrant::base::Syntax;
 import ParseTree;
 
-start[Controller] xrefController(Tree pt) {
+start[Controller] xrefController(start[Controller] pt) {
   stateOrgs = ();
   eventOrgs = ();
   eventTokens = ();  

@@ -1,10 +1,7 @@
 
-// a comment
-
 events
  doorClosed D1CL
  drawerOpened D2OP
- 
  lightOn L1ON
  doorOpened D1OP
  panelClosed PNCL 
@@ -26,8 +23,6 @@ state idle
  doorClosed => active
 end 
 
-
-
 state active
  drawerOpened => waitingForLight
  lightOn => waitingForDrawer 
@@ -37,6 +32,7 @@ end
 state waitingForLight
  lightOn => unlockedPanel 
 end 
+
 
 state waitingForDrawer
  drawerOpened => unlockedPanel
