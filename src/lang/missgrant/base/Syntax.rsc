@@ -9,7 +9,10 @@ syntax Commands = @Foldable "commands" Command* "end";
 syntax Command = command: Id name Id token;
 syntax Event = event: Id name Id token;
 
-syntax State = @Foldable state: "state" Id name Actions? Transition* "end";
+syntax State = @Foldable state: 
+  "state" Id name Actions? 
+    Transition* 
+  "end";
 syntax Actions = "actions" "{" Id+ "}";
 
 syntax Transition 
@@ -17,11 +20,6 @@ syntax Transition
   | transition: "after" Nat number Id event "=\>" Id state;
 
 lexical Nat = [1-9][0-9]* !>> [0-9];
-
-//lexical Nat
-//  =  Nat [0-9]
-//  | [0-9] 
-//  ;
 
 lexical Id = ([a-zA-Z][a-zA-Z0-9_]* !>> [a-zA-Z0-9_]) \ Reserved ;
 

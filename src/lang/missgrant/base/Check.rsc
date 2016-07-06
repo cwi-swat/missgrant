@@ -23,40 +23,6 @@ Warnings
 
 */
 
-data Check
-  = undefinedStates()
-  | undefinedEvents()
-  | undefinedCommands()
-  | resetsInTransition()
-  | duplicateStates()
-  | duplicateEvents()
-  | duplicateCommands()
-  | unreachableStates()
-  | nonDeterministicStates()
-  | unusedEvents()
-  | unusedCommands()
-  | deadendStates()
-  | noNegativeRetries()
-  ;
-
-set[Message] check(list[Check] features, Controller ctl)
-  = ( {} | it + check(f, ctl) | f <- features )
-  ;
-
-set[Message] check(undefinedStates(), Controller ctl) = undefinedStates(ctl);
-set[Message] check(undefinedEvents(), Controller ctl) = undefinedEvents(ctl);
-set[Message] check(undefinedCommands(), Controller ctl) = undefinedCommands(ctl);
-set[Message] check(resetsInTransition(), Controller ctl) = resetsInTransition(ctl);
-set[Message] check(duplicateStates(), Controller ctl) = duplicateStates(ctl);
-set[Message] check(duplicateEvents(), Controller ctl) = duplicateEvents(ctl);
-set[Message] check(duplicateCommands(), Controller ctl) = duplicateCommands(ctl);
-set[Message] check(unreachableStates(), Controller ctl) = unreachableStates(ctl);
-set[Message] check(nonDeterministicStates(), Controller ctl) = nonDeterministicStates(ctl);
-set[Message] check(unusedEvents(), Controller ctl) = unusedEvents(ctl);
-set[Message] check(unusedCommands(), Controller ctl) = unusedCommands(ctl);
-set[Message] check(deadendStates(), Controller ctl) = deadendStates(ctl);
-set[Message] check(noNegativeRetries(), Controller ctl) = noNegativeRetries(ctl);
-
 public set[Message] check(Controller ctl) 
   = undefinedStates(ctl)
   + undefinedEvents(ctl)
