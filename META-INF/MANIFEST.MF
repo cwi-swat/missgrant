@@ -3,6 +3,5 @@ Bundle-ManifestVersion: 2
 Bundle-Name: MissGrant
 Bundle-SymbolicName: MissGrant;singleton:=true
 Bundle-Version: 1.0.0
-Require-Bundle: org.eclipse.imp.pdb.values,
- rascal
+Require-Bundle: rascal_eclipse
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
